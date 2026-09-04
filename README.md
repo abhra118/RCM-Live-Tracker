@@ -71,7 +71,7 @@ Power BI dashboards refresh with current KPIs
 
 ### RCM Live Tracker
 
-![RCM Live Tracker](02_RCM_Live_Tracker.png)
+![RCM Live Tracker](02_RCM_Live_Tracker.png.jpg)
 
 ## Security Note
 
