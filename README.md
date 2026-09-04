@@ -1,15 +1,35 @@
-# Hourly RCM Pipeline
+# Automated Healthcare RCM Live Tracker
 
-This local script simulates an hourly RCM source feed and loads new claims and agent activity into MySQL.
+An end-to-end Healthcare Revenue Cycle Management (RCM) analytics project built with MySQL, Python automation, Windows Task Scheduler, and Power BI.
 
-## Setup
+## Project Overview
 
-1. Install packages: `python -m pip install -r requirements.txt`
-2. Copy `.env.example` to `.env` and enter the MySQL root password.
-3. Test the pipeline: `python hourly_pipeline.py`
+This project simulates a real healthcare RCM operations environment where claim and agent performance data updates automatically every hour.
 
-The script adds 22–38 claims, seven agent activity rows, and one refresh-log row per run. It uses the next hour after the latest `agent_hourly.refresh_hour` record so the Power BI dashboard’s refresh timestamp advances each run.
+## Dashboard Pages
 
-## Production replacement
+### 1. Live Agent Performance Tracker
 
-Replace `generate_claim_updates()` and `generate_agent_activity()` with a read-only source-system query or API request. The MySQL load and refresh-log steps remain unchanged.
+- Claims processed in the latest hour
+- Target achievement and average accuracy
+- Agents below target
+- Agent scorecard and priority action list
+
+### 2. RCM Live Tracker
+
+- Total claims and collections
+- Denial rate
+- High-priority claims
+- Live claim-status breakdown
+- Priority claim action list
+
+## Automation Pipeline
+
+```text
+Windows Task Scheduler (every hour)
+        ↓
+Python pipeline generates new RCM activity
+        ↓
+MySQL database is updated
+        ↓
+Power BI dashboards refresh with current KPIs
